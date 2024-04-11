@@ -54,4 +54,4 @@ jobs:
             VERSION=${{ matrix.version }}
           context: ${{ matrix.language }}
           push: true
-          tags: ${{ github.repository_owner_id}}/${{ matrix.language }}:${{ matrix.version }}
+          tags: ghcr.io/${{ github.repository }}/${{ matrix.language }}:${{ matrix.version }}
