@@ -54,4 +54,5 @@ jobs:
             VERSION=${{ matrix.version }}
           context: ${{ matrix.language }}
           push: true
-          tags: ghcr.io/${{ github.repository }}/${{ matrix.language }}:${{ matrix.version }}
+          # https://github.com/orgs/community/discussions/10553
+          tags: ghcr.io/nathanvaughn/${{ matrix.language }}:${{ matrix.version }}
