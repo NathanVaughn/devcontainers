@@ -36,11 +36,14 @@ jobs:
             version: "3.12"
             tag: latest
           - language: node
+            version: "18"
+            tag: "18"
+          - language: node
             version: "20"
             tag: "20"
           - language: node
-            version: "18"
-            tag: "18"
+            version: "20"
+            tag: "latest"
 
     permissions:
       contents: read
