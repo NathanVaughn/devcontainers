@@ -76,4 +76,4 @@ jobs:
             VERSION=${{ matrix.version }}
           context: ${{ matrix.language }}
           push: ${{ github.ref == 'refs/heads/main' }}
-          tags: ghcr.io/${{ steps.lower.outputs.image }}/${{ matrix.language }}:${{ matrix.version }}
+          tags: ghcr.io/${{ steps.lower.outputs.image }}/${{ matrix.language }}:${{ matrix.tag }}
