@@ -19,18 +19,28 @@ jobs:
         include:
           - language: python
             version: "3.8"
+            tag: "3.8"
           - language: python
             version: "3.9"
+            tag: "3.9"
           - language: python
             version: "3.10"
+            tag: "3.10"
           - language: python
             version: "3.11"
+            tag: "3.11"
           - language: python
             version: "3.12"
+            tag: "3.12"
+          - language: python
+            version: "3.12"
+            tag: latest
           - language: node
             version: "20"
+            tag: "20"
           - language: node
             version: "18"
+            tag: "18"
 
     permissions:
       contents: read
