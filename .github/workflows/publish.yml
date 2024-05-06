@@ -43,7 +43,9 @@ jobs:
             tag: "latest"
 
     permissions:
+      id-token: write
       contents: read
+      attestations: write
       packages: write
 
     steps:
