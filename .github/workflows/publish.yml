@@ -1,4 +1,4 @@
-name: Publish dev container images
+name: Build Devcontainers
 
 on:
   workflow_dispatch:
@@ -69,6 +69,7 @@ jobs:
 
       - name: Build and push
         uses: docker/build-push-action@v5
+        id: dockerbuild
         with:
           cache-from: type=gha
           cache-to: type=gha
@@ -77,3 +78,12 @@ jobs:
           context: ${{ matrix.language }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ghcr.io/${{ steps.lower.outputs.image }}/${{ matrix.language }}:${{ matrix.tag }}
+
+      - name: Create Attestation
+        id: attest
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: ghcr.io/${{ steps.lower.outputs.image }}/${{ matrix.language }}
+          subject-digest: ${{ steps.dockerbuild.outputs.digest }}
+          push-to-registry: false
