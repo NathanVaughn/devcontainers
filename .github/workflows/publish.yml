@@ -77,7 +77,7 @@ jobs:
           cache-to: type=gha
           build-args: |
             VERSION=${{ matrix.version }}
-          context: ${{ matrix.language }}
+          file: ${{ matrix.language }}/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ghcr.io/${{ steps.lower.outputs.image }}/${{ matrix.language }}:${{ matrix.tag }}
 
