@@ -4,7 +4,7 @@ RUN git config --global gpg.program gpg2
 # need to get default user, since Python and Node images use different user names
 # Python = vscode
 # Node = node
-RUN user="$(ls -1 /home/ | head -n1)" \
+RUN user="$(id -nu 1000)" \
   && mkdir -p /home/$user/.gnupg/ \
   && echo "default-cache-ttl 86400\nmax-cache-ttl 86400" > /home/$user/.gnupg/gpg-agent.conf \
   && chown -R $user:$user /home/$user/.gnupg/
