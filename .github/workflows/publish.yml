@@ -75,7 +75,7 @@ jobs:
         with:
           cache-from: type=gha
           cache-to: type=gha
-          context: .
+          context: . # build will fail without this
           build-args: |
             VERSION=${{ matrix.version }}
           file: ${{ matrix.language }}/Dockerfile

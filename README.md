@@ -21,7 +21,7 @@ or
 {
     "image": "ghcr.io/nathanvaughn/devcontainers/node:latest",
     "mounts": [
-        "source=devcontainer-profile-${containerWorkspaceFolderBasename},target=/home/vscode/,type=volume"
+        "source=devcontainer-profile-${containerWorkspaceFolderBasename},target=/home/node/,type=volume"
     ]
 }
 ```
