@@ -2,7 +2,7 @@
 RUN git config --global gpg.program gpg2
 # increase GPG timeout to 24 hours
 # need to get default user, since Python and Node images use different user names
-# Pythn = vscode
+# Python = vscode
 # Node = node
 RUN user="$(ls -1 /home/ | head -n1)" \
   && mkdir -p /home/$user/.gnupg/ \
