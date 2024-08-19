@@ -1,4 +1,4 @@
 poetry==1.8.3
 vscode-task-runner==1.3.0
-pre-commit-update==0.3.3.post1
+pre-commit-update==0.4.0.post1
 pre-commit==3.8.0
