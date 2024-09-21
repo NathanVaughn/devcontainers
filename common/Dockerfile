@@ -10,4 +10,4 @@ RUN user="$(id -nu 1000)" \
   && chown -R $user:$user /home/$user/.gnupg/
 
 LABEL org.opencontainers.image.source="https://github.com/NathanVaughn/devcontainers"
-LABEL org.opencontainers.image.description="Pre-built devcontainer for Node with tools I like preinstalled."
+LABEL org.opencontainers.image.description="Pre-built devcontainer with tools I like preinstalled."
