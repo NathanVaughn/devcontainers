@@ -12,3 +12,6 @@ COPY python/requirements.txt /tmp/
 RUN --mount=type=cache,target=/home/vscode/.cache/,uid=1000 \
     xargs < /tmp/requirements.txt -n 1 uv tool install && sudo rm /tmp/requirements.txt \
  && poetry self add poetry-pre-commit-plugin
+
+# for some reason hardlinking fails
+ENV UV_LINK_MODE=symlink
