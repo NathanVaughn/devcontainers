@@ -19,6 +19,11 @@ RUN --mount=type=cache,target=/root/.cache/ \
     xargs < /tmp/requirements.txt -n 1 uv tool install && rm /tmp/requirements.txt \
  && poetry self add poetry-pre-commit-plugin \
  && chmod -R a+rx /opt/uv/
+# unset env values
+RUN unset UV_TOOL_DIR \
+ && unset UV_TOOL_BIN_DIR \
+# update PATH
+ENV PATH="$PATH:/home/vscode/.local/bin"
 
 # for some reason hardlinking fails
 ENV UV_LINK_MODE=symlink
