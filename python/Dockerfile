@@ -2,7 +2,7 @@
 ARG VERSION
 
 FROM mcr.microsoft.com/devcontainers/python:${VERSION}
-COPY --from=ghcr.io/astral-sh/uv:0.4.15 /uv /bin/uv
+COPY --from=ghcr.io/astral-sh/uv:0.4.15 /uv /uvx /bin/
 
 INCLUDE+ common/Dockerfile
 
@@ -20,8 +20,8 @@ RUN --mount=type=cache,target=/root/.cache/ \
  && poetry self add poetry-pre-commit-plugin \
  && chmod -R a+rx /opt/uv/
 # unset env values
-RUN unset UV_TOOL_DIR \
- && unset UV_TOOL_BIN_DIR \
+ENV UV_TOOL_DIR ""
+ENV UV_TOOL_BIN_DIR ""
 # update PATH
 ENV PATH="$PATH:/home/vscode/.local/bin"
 
