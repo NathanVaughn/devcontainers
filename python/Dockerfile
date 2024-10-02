@@ -17,7 +17,6 @@ ENV PATH="$PATH:/opt/uv/tools"
 COPY python/requirements.txt /tmp/
 RUN --mount=type=cache,target=/root/.cache/ \
     xargs < /tmp/requirements.txt -n 1 uv tool install && rm /tmp/requirements.txt \
- && poetry self add poetry-pre-commit-plugin \
  && chmod -R a+rx /opt/uv/
 # unset env values
 ENV UV_TOOL_DIR ""
