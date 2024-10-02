@@ -2,7 +2,7 @@
 ARG VERSION
 
 FROM mcr.microsoft.com/devcontainers/python:${VERSION}
-COPY --from=ghcr.io/astral-sh/uv:0.4.17 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.4.18 /uv /uvx /bin/
 
 INCLUDE+ common/Dockerfile
 
@@ -17,7 +17,6 @@ ENV PATH="$PATH:/opt/uv/tools"
 COPY python/requirements.txt /tmp/
 RUN --mount=type=cache,target=/root/.cache/ \
     xargs < /tmp/requirements.txt -n 1 uv tool install && rm /tmp/requirements.txt \
- && poetry self add poetry-pre-commit-plugin \
  && chmod -R a+rx /opt/uv/
 # unset env values
 ENV UV_TOOL_DIR ""
