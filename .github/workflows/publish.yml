@@ -17,12 +17,12 @@ jobs:
     strategy:
       matrix:
         include:
-          - language: python
-            version: "3.9"
-            tag: "3.9"
-          - language: python
-            version: "3.10"
-            tag: "3.10"
+          # - language: python
+          #   version: "3.9"
+          #   tag: "3.9"
+          # - language: python
+          #   version: "3.10"
+          #   tag: "3.10"
           - language: python
             version: "3.11"
             tag: "3.11"
@@ -30,7 +30,10 @@ jobs:
             version: "3.12"
             tag: "3.12"
           - language: python
-            version: "3.12"
+            version: "3.13"
+            tag: "3.13"
+          - language: python
+            version: "3.13"
             tag: latest
           - language: node
             version: "18"
