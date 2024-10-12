@@ -2,7 +2,7 @@
 ARG VERSION
 
 FROM mcr.microsoft.com/devcontainers/python:${VERSION}
-COPY --from=ghcr.io/astral-sh/uv:0.4.18 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.4.20 /uv /uvx /bin/
 
 INCLUDE+ common/Dockerfile
 
