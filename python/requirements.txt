@@ -1,1 +1,1 @@
-vscode-task-runner==1.3.2
+vscode-task-runner==1.3.3
