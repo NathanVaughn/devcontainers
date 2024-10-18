@@ -9,11 +9,13 @@ ENV N_PREFIX /home/code/.n
 ENV PREFIX /opt/n
 ENV PATH="$PATH:/home/code/.n/bin:/opt/n/bin"
 
-# install https://github.com/tj/n
+# install n
+# renovate: datasource=github-releases depName=n packageName=tj/n
+ENV N_VERSION=v10.0.0
 RUN cd /tmp/ \
  && git clone https://github.com/tj/n \
  && cd n \
- && git checkout v10.0.0 \
+ && git checkout $N_VERSION \
  && make install \
  && cd .. \
  && rm -rf n \
