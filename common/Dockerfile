@@ -72,3 +72,6 @@ RUN curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /opt/ -v $OMP_VERSIO
 # add labels
 LABEL org.opencontainers.image.source="https://github.com/NathanVaughn/devcontainers"
 LABEL org.opencontainers.image.description="Pre-built devcontainer with tools I like preinstalled."
+
+# set default shell
+ENV SHELL=/bin/bash
