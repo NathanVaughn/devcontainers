@@ -30,6 +30,7 @@ RUN --mount=target=/var/lib/apt,type=cache,sharing=locked \
     lsb-release \
     nano\
     net-tools\
+    python-is-python3 \
     rsync\
     sed \
     software-properties-common\
@@ -59,6 +60,10 @@ RUN mkdir -p /home/$USERNAME/.gnupg/ \
 # create opt directory
 RUN mkdir -p /opt/ \
 && chmod -R 777 /opt/
+
+# fix cache directory permissions
+# no idea how this occurs
+RUN chown -R $USERNAME:$USERNAME /home/$USERNAME/.cache/
 
 # set default user
 USER $USERNAME

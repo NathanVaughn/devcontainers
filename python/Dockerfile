@@ -8,6 +8,8 @@ COPY --from=ghcr.io/astral-sh/uv:0.4.18 /uv /uvx /bin/
 # so we can safely cache the user's home directory
 ENV UV_TOOL_DIR /opt/uv/
 ENV UV_TOOL_BIN_DIR /opt/uv/tools
+# update PATH
+ENV PATH="$PATH:/home/code/.local/bin:/opt/uv/tools"
 
 # install tools
 RUN --mount=type=cache,target=/home/code/.cache/uv,uid=1001,gid=1001 \
@@ -17,9 +19,6 @@ RUN --mount=type=cache,target=/home/code/.cache/uv,uid=1001,gid=1001 \
 # unset env values
 ENV UV_TOOL_DIR ""
 ENV UV_TOOL_BIN_DIR ""
-
-# update PATH
-ENV PATH="$PATH:/home/code/.local/bin:/opt/uv/tools"
 
 # for some reason hardlinking fails
 ENV UV_LINK_MODE=symlink

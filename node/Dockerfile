@@ -7,6 +7,7 @@ INCLUDE+ common/Dockerfile
 ENV N_PREFIX /home/code/.n
 # controls where n installs node versions and tools
 ENV PREFIX /opt/n
+# update PATH
 ENV PATH="$PATH:/home/code/.n/bin:/opt/n/bin"
 
 # install n
