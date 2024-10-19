@@ -68,7 +68,7 @@ USER $USERNAME
 
 # install oh-my-posh
 # renovate: datasource=github-releases depName=oh-my-posh packageName=JanDeDobbeleer/oh-my-posh
-ENV OMP_VERSION=v23.20.1
+ENV OMP_VERSION=v23.20.2
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /opt/ -v $OMP_VERSION \
  && echo 'eval "$(/opt/oh-my-posh init bash)"' >> ~/.bashrc
 
