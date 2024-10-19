@@ -23,9 +23,11 @@ RUN cd /tmp/ \
  && n lts
 
 # install a few tools
+# need to chown directory afterwards as --mount causes it to be owned by root
 RUN --mount=type=cache,target=/home/code/.npm/,uid=1001,gid=1001 \
     --mount=type=bind,src=node/.tool-versions,dst=/tmp/.tool-versions \
-   xargs < /tmp/.tool-versions -n 1 npm install -g
+    xargs < /tmp/.tool-versions -n 1 npm install -g \
+ && sudo chown -R code:code /home/code/.npm/
 
 # unset env values
 ENV PREFIX ""
