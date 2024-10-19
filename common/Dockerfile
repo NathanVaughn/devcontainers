@@ -71,9 +71,12 @@ ENV OMP_VERSION=v23.20.1
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /opt/ -v $OMP_VERSION \
  && echo 'eval "$(/opt/oh-my-posh init bash)"' >> ~/.bashrc
 
+# set environment variables
+# set default shell for vscode
+ENV SHELL=/bin/bash
+# needed for oh-my-posh https://github.com/JanDeDobbeleer/oh-my-posh/discussions/3691#discussioncomment-5555932
+ENV USER=$USERNAME
+
 # add labels
 LABEL org.opencontainers.image.source="https://github.com/NathanVaughn/devcontainers"
 LABEL org.opencontainers.image.description="Pre-built devcontainer with tools I like preinstalled."
-
-# set default shell
-ENV SHELL=/bin/bash
