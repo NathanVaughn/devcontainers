@@ -1,9 +1,10 @@
 FROM docker.io/library/ubuntu:24.04
 
-ARG USERNAME=code
+# needed for oh-my-posh https://github.com/JanDeDobbeleer/oh-my-posh/discussions/3691#discussioncomment-5555932
+ENV USERNAME=dev
 # ubuntu image comes with ubuntu user at uid 1000
-ARG USER_UID=1001
-ARG USER_GID=1001
+ENV USER_UID=1001
+ENV USER_GID=1001
 
 # install common tools
 ENV DEBIAN_FRONTEND=noninteractive
@@ -71,11 +72,8 @@ ENV OMP_VERSION=v23.20.1
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /opt/ -v $OMP_VERSION \
  && echo 'eval "$(/opt/oh-my-posh init bash)"' >> ~/.bashrc
 
-# set environment variables
 # set default shell for vscode
 ENV SHELL=/bin/bash
-# needed for oh-my-posh https://github.com/JanDeDobbeleer/oh-my-posh/discussions/3691#discussioncomment-5555932
-ENV USER=$USERNAME
 
 # add labels
 LABEL org.opencontainers.image.source="https://github.com/NathanVaughn/devcontainers"

@@ -9,14 +9,14 @@ COPY --from=ghcr.io/astral-sh/uv:0.4.24 /uv /uvx /bin/
 ENV UV_TOOL_DIR /opt/uv/
 ENV UV_TOOL_BIN_DIR /opt/uv/tools
 # update PATH
-ENV PATH="$PATH:/home/code/.local/bin:/opt/uv/tools"
+ENV PATH="$PATH:/home/$USERNAME/.local/bin:/opt/uv/tools"
 
 # install tools
 # need to chown directory afterwards as --mount causes it to be owned by root
-RUN --mount=type=cache,target=/home/code/.cache/uv,uid=1001,gid=1001 \
+RUN --mount=type=cache,target=/home/$USERNAME/.cache/uv,uid=1001,gid=1001 \
     --mount=type=bind,src=python/requirements.txt,dst=/tmp/requirements.txt \
     xargs < /tmp/requirements.txt -n 1 uv tool install \
- && sudo chown -R code:code /home/code/.cache/
+ && sudo chown -R $USERNAME:$USERNAME /home/$USERNAME/.cache/
 
 # unset env values
 ENV UV_TOOL_DIR ""
