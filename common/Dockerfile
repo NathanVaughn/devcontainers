@@ -59,7 +59,7 @@ RUN mkdir -p /home/$USERNAME/.gnupg/ \
 
 # create opt directory
 RUN mkdir -p /opt/ \
-&& chmod -R 777 /opt/
+ && chmod -R 777 /opt/
 ENV PATH="$PATH:/opt"
 
 # set default user
