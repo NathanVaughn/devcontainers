@@ -61,10 +61,6 @@ RUN mkdir -p /home/$USERNAME/.gnupg/ \
 RUN mkdir -p /opt/ \
 && chmod -R 777 /opt/
 
-# fix cache directory permissions
-# no idea how this occurs
-RUN chown -R $USERNAME:$USERNAME /home/$USERNAME/.cache/
-
 # set default user
 USER $USERNAME
 
