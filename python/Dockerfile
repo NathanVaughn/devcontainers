@@ -24,3 +24,6 @@ ENV UV_TOOL_BIN_DIR ""
 
 # for some reason hardlinking fails
 ENV UV_LINK_MODE=symlink
+
+# force usage of uv managed python installs
+ENV UV_PYTHON_PREFERENCE=only-managed

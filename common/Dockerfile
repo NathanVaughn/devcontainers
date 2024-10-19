@@ -69,6 +69,7 @@ USER $USERNAME
 ENV OMP_VERSION=v23.20.1
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /opt/ -v $OMP_VERSION \
  && echo 'eval "$(/opt/oh-my-posh init bash)"' >> ~/.bashrc
+ENV PATH="$PATH:/opt"
 
 # add labels
 LABEL org.opencontainers.image.source="https://github.com/NathanVaughn/devcontainers"
