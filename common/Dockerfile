@@ -60,6 +60,7 @@ RUN mkdir -p /home/$USERNAME/.gnupg/ \
 # create opt directory
 RUN mkdir -p /opt/ \
 && chmod -R 777 /opt/
+ENV PATH="$PATH:/opt"
 
 # set default user
 USER $USERNAME
@@ -69,7 +70,6 @@ USER $USERNAME
 ENV OMP_VERSION=v23.20.1
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /opt/ -v $OMP_VERSION \
  && echo 'eval "$(/opt/oh-my-posh init bash)"' >> ~/.bashrc
-ENV PATH="$PATH:/opt"
 
 # add labels
 LABEL org.opencontainers.image.source="https://github.com/NathanVaughn/devcontainers"
