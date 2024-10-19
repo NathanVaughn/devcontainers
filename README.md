@@ -10,7 +10,7 @@ In `.devcontainer/devcontainer.json`:
 {
     "image": "ghcr.io/nathanvaughn/devcontainers/python:latest",
     "mounts": [
-        "source=devcontainer-profile-${containerWorkspaceFolderBasename},target=/home/code/,type=volume"
+        "source=devcontainer-profile-${containerWorkspaceFolderBasename},target=/home/dev/,type=volume"
     ]
 }
 ```
@@ -21,7 +21,7 @@ or
 {
     "image": "ghcr.io/nathanvaughn/devcontainers/node:latest",
     "mounts": [
-        "source=devcontainer-profile-${containerWorkspaceFolderBasename},target=/home/code/,type=volume"
+        "source=devcontainer-profile-${containerWorkspaceFolderBasename},target=/home/dev/,type=volume"
     ]
 }
 ```
