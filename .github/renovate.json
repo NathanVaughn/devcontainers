@@ -4,23 +4,10 @@
     "customManagers": [
         {
           "customType": "regex",
-          "description": "Update _VERSION variables in Dockerfiles",
-          "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
-          "matchStrings": ["# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s(?:ENV|ARG) .+?_VERSION=(?<currentValue>.+?)\\s"]
-        },
-        {
-          "customType": "regex",
           "description": "Update npm tool versions",
           "fileMatch": [".*?\\.tool-versions$"],
           "matchStrings": ["^(?<depName>.+?)@(?<currentValue>.+?)$"],
           "datasourceTemplate": "npm"
-        }
-      ],
-      "packageRules": [
-        {
-            "matchCategories": ["docker"],
-            "schedule": ["before 11pm"],
-            "matchPackageNames": ["ghcr.io/astral-sh/uv"]
         }
     ]
 }
