@@ -15,5 +15,12 @@
           "matchStrings": ["^(?<depName>.+?)@(?<currentValue>.+?)$"],
           "datasourceTemplate": "npm"
         }
-      ]
+      ],
+      "packageRules": [
+        {
+            "matchCategories": ["docker"],
+            "schedule": ["before 11pm"],
+            "matchPackageNames": ["ghcr.io/astral-sh/uv"]
+        }
+    ]
 }

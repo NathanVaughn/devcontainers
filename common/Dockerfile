@@ -42,6 +42,11 @@ RUN --mount=target=/var/lib/apt,type=cache,sharing=locked \
  && apt-add-repository ppa:git-core/ppa \
  && apt-get install -y --no-install-recommends git
 
+# create opt directory
+RUN mkdir -p /opt/ \
+ && chmod -R 777 /opt/
+ENV PATH="$PATH:/opt"
+
 # add a non-root user
 # https://github.com/devcontainers/features/blob/125f6b0071597a59f3ccbefaf9145b5867528ae3/src/common-utils/main.sh#L422-L438
 # https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user#_creating-a-nonroot-user
@@ -50,6 +55,9 @@ RUN groupadd --gid $USER_GID $USERNAME \
  && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
  && chmod 0440 /etc/sudoers.d/$USERNAME
 
+# set default user
+USER $USERNAME
+
 # ensure git uses correct GPG application, and not imported git config
 RUN git config --global gpg.program gpg2
 
@@ -57,14 +65,6 @@ RUN git config --global gpg.program gpg2
 RUN mkdir -p /home/$USERNAME/.gnupg/ \
  && echo "default-cache-ttl 86400\nmax-cache-ttl 86400" > /home/$USERNAME/.gnupg/gpg-agent.conf \
  && chown -R $USERNAME:$USERNAME /home/$USERNAME/.gnupg/
-
-# create opt directory
-RUN mkdir -p /opt/ \
- && chmod -R 777 /opt/
-ENV PATH="$PATH:/opt"
-
-# set default user
-USER $USERNAME
 
 # install oh-my-posh
 # renovate: datasource=github-releases depName=oh-my-posh packageName=JanDeDobbeleer/oh-my-posh
