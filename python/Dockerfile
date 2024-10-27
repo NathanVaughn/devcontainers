@@ -6,8 +6,8 @@ COPY --from=ghcr.io/astral-sh/uv:0.4.27 /uv /uvx /opt/uv/bin/
 
 # put saved tools outside user home
 # so we can safely cache the user's home directory
-ENV UV_TOOL_DIR /opt/uv/tools
-ENV UV_TOOL_BIN_DIR /opt/uv/tools/bin
+ENV UV_TOOL_DIR=/opt/uv/tools
+ENV UV_TOOL_BIN_DIR=/opt/uv/tools/bin
 # update PATH
 # include local bin for user insalled tools
 ENV PATH="$PATH:/home/$USERNAME/.local/bin:/opt/uv/bin:/opt/uv/tools/bin"
@@ -21,9 +21,12 @@ RUN --mount=type=cache,target=/home/$USERNAME/.cache/uv,uid=1001,gid=1001 \
     xargs < /tmp/requirements.txt -n 1 uv tool install \
  && sudo chown -R $USERNAME:$USERNAME /home/$USERNAME/.cache/
 
-# unset env values
-ENV UV_TOOL_DIR ""
-ENV UV_TOOL_BIN_DIR ""
+# reset env values
+# seems that uv is not treating blank values as unset
+# https://docs.astral.sh/uv/reference/cli/#uv-tool-dir
+# https://github.com/astral-sh/uv/issues/8608
+ENV UV_TOOL_DIR=/home/$USERNAME/.local/share/uv/tools
+ENV UV_TOOL_BIN_DIR=/home/$USERNAME/.local/bin
 
 # for some reason hardlinking fails
 ENV UV_LINK_MODE=symlink
