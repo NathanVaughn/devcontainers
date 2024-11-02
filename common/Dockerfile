@@ -42,6 +42,9 @@ RUN --mount=target=/var/lib/apt,type=cache,sharing=locked \
  && apt-add-repository ppa:git-core/ppa \
  && apt-get install -y --no-install-recommends git
 
+# ensure git uses correct GPG application, and not imported git config
+RUN git config --system gpg.program gpg2
+
 # create opt directory
 RUN mkdir -p /opt/ \
  && chmod -R 777 /opt/
@@ -57,9 +60,6 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 # set default user
 USER $USERNAME
-
-# ensure git uses correct GPG application, and not imported git config
-RUN git config --global gpg.program gpg2
 
 # increase GPG timeout to 24 hours
 RUN mkdir -p /home/$USERNAME/.gnupg/ \
