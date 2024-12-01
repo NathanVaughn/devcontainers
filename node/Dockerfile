@@ -12,7 +12,7 @@ ENV PATH="$PATH:/home/$USERNAME/.n/bin:/opt/n/bin"
 
 # install n
 # renovate: datasource=github-releases depName=n packageName=tj/n
-ENV N_VERSION=v10.0.0
+ENV N_VERSION=v10.1.0
 RUN cd /tmp/ \
  && git clone https://github.com/tj/n \
  && cd n \
