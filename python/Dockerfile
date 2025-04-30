@@ -2,7 +2,7 @@
 
 INCLUDE+ common/Dockerfile
 
-COPY --from=ghcr.io/astral-sh/uv:0.6.12 /uv /uvx /opt/uv/bin/
+COPY --from=ghcr.io/astral-sh/uv:0.7.0 /uv /uvx /opt/uv/bin/
 
 # put saved tools outside user home
 # so we can safely cache the user's home directory
@@ -22,11 +22,9 @@ RUN --mount=type=cache,target=/home/$USERNAME/.cache/uv,uid=1001,gid=1001 \
  && sudo chown -R $USERNAME:$USERNAME /home/$USERNAME/.cache/
 
 # reset env values
-# seems that uv is not treating blank values as unset
-# https://docs.astral.sh/uv/reference/cli/#uv-tool-dir
-# https://github.com/astral-sh/uv/issues/8608
-ENV UV_TOOL_DIR=/home/$USERNAME/.local/share/uv/tools
-ENV UV_TOOL_BIN_DIR=/home/$USERNAME/.local/bin
+# works as of 0.7.0
+ENV UV_TOOL_DIR=
+ENV UV_TOOL_BIN_DIR=
 
 # for some reason hardlinking fails
 ENV UV_LINK_MODE=symlink
