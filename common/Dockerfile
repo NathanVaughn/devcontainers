@@ -68,7 +68,7 @@ RUN mkdir -p /home/$USERNAME/.gnupg/ \
 
 # install oh-my-posh
 # renovate: datasource=github-releases depName=oh-my-posh packageName=JanDeDobbeleer/oh-my-posh
-ENV OMP_VERSION=v25.20.0
+ENV OMP_VERSION=v25.23.3
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /opt/ -v $OMP_VERSION \
  && echo 'eval "$(/opt/oh-my-posh init bash)"' >> ~/.bashrc
 
