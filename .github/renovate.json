@@ -1,6 +1,7 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": ["github>nathanvaughn/renovate-config"],
+    "dependencyDashboard": true,
     "customManagers": [
         {
           "customType": "regex",
@@ -11,3 +12,4 @@
         }
     ]
 }
+
