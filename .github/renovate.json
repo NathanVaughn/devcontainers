@@ -1,15 +1,20 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["github>nathanvaughn/renovate-config"],
+    "extends": [
+        "github>nathanvaughn/renovate-config"
+    ],
     "dependencyDashboard": true,
     "customManagers": [
         {
-          "customType": "regex",
-          "description": "Update npm tool versions",
-          "fileMatch": [".*?\\.tool-versions$"],
-          "matchStrings": ["^(?<depName>.+?)@(?<currentValue>.+?)$"],
-          "datasourceTemplate": "npm"
+            "customType": "regex",
+            "description": "Update npm tool versions",
+            "managerFilePatterns": [
+                "/.*?\\.tool-versions$/"
+            ],
+            "matchStrings": [
+                "^(?<depName>.+?)@(?<currentValue>.+?)$"
+            ],
+            "datasourceTemplate": "npm"
         }
     ]
 }
-
