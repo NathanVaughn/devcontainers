@@ -2,7 +2,7 @@
 
 INCLUDE+ common/Dockerfile
 
-COPY --from=ghcr.io/astral-sh/uv:0.9.28 /uv /uvx /opt/uv/bin/
+COPY --from=ghcr.io/astral-sh/uv:0.10.2 /uv /uvx /opt/uv/bin/
 
 # put saved tools outside user home
 # so we can safely cache the user's home directory
