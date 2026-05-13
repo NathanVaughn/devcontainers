@@ -1,4 +1,4 @@
-FROM docker.io/library/ubuntu:26.04
+FROM docker.io/library/ubuntu:24.04
 
 # needed for oh-my-posh https://github.com/JanDeDobbeleer/oh-my-posh/discussions/3691#discussioncomment-5555932
 ENV USERNAME=dev
