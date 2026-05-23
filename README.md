@@ -41,5 +41,5 @@ uv python install
 ### Node
 
 ```bash
-n install auto
+fnm install 24
 ```

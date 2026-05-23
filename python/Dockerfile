@@ -9,7 +9,7 @@ COPY --from=ghcr.io/astral-sh/uv:0.11.2 /uv /uvx /opt/uv/bin/
 ENV UV_TOOL_DIR=/opt/uv/tools
 ENV UV_TOOL_BIN_DIR=/opt/uv/tools/bin
 # update PATH
-# include local bin for user insalled tools
+# include local bin for user installed tools
 ENV PATH="$PATH:/home/$USERNAME/.local/bin:/opt/uv/bin:/opt/uv/tools/bin"
 
 # install tools
