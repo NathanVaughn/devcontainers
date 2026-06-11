@@ -3,7 +3,6 @@
 INCLUDE+ common/Dockerfile
 
 # install fnm
-RUN mkdir -p /opt/nvm && \
-    curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | NVM_DIR="/opt/nvm" bash
+RUN curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "/opt/fnm"
 # update PATH
-ENV PATH="$PATH:/opt/nvm"
+ENV PATH="$PATH:/opt/fnm"
