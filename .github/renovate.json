@@ -3,18 +3,5 @@
     "extends": [
         "github>nathanvaughn/renovate-config"
     ],
-    "dependencyDashboard": true,
-    "customManagers": [
-        {
-            "customType": "regex",
-            "description": "Update npm tool versions",
-            "managerFilePatterns": [
-                "/.*?\\.tool-versions$/"
-            ],
-            "matchStrings": [
-                "^(?<depName>.+?)@(?<currentValue>.+?)$"
-            ],
-            "datasourceTemplate": "npm"
-        }
-    ]
+    "dependencyDashboard": true
 }

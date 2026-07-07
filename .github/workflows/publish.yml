@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        language: ["python", "node"]
+        language: ["python", "node", "pythonnode"]
 
     permissions:
       contents: read
@@ -39,7 +39,7 @@ jobs:
 
     strategy:
       matrix:
-        language: ["python", "node"]
+        language: ["python", "node", "pythonnode"]
 
     permissions:
       id-token: write
