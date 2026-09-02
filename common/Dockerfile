@@ -55,6 +55,10 @@ RUN (type -p wget >/dev/null || (apt update && apt install wget -y)) \
 # ensure git uses correct GPG application, and not imported git config
 RUN git config --system gpg.program gpg2
 
+# fix locale issues
+RUN locale-gen en_US.UTF-8 \
+ && update-locale LANG=en_US.UTF-8
+
 # create opt directory
 RUN mkdir -p /opt/ \
  && chmod -R 777 /opt/
