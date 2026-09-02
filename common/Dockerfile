@@ -82,6 +82,12 @@ ENV OMP_VERSION=v30.6.5
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /opt/ -v $OMP_VERSION \
  && echo 'eval "$(/opt/oh-my-posh init bash)"' >> ~/.bashrc
 
+# install dotfiles
+RUN git clone https://github.com/NathanVaughn/dotfiles ~/dotfiles \
+ && cd ~/dotfiles \
+ && chmod +x ./bootstrap.sh \
+ && ./bootstrap.sh
+
 # set default shell for vscode
 ENV SHELL=/bin/bash
 

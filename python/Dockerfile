@@ -2,7 +2,10 @@
 
 INCLUDE+ common/Dockerfile
 
-COPY --from=ghcr.io/astral-sh/uv:0.11.2 /uv /uvx /opt/uv/bin/
+# Install via official script so it can update itself
+# renovate: datasource=github-releases depName=uv packageName=astral-sh/uv
+ENV UV_VERSION=0.12.9
+RUN curl -LsSf https://astral.sh/uv/$UV_VERSION/install.sh | sh
 
 # put saved tools outside user home
 # so we can safely cache the user's home directory
