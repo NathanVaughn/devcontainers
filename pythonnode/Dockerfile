@@ -4,7 +4,7 @@ INCLUDE+ common/Dockerfile
 
 # Install via official script so it can update itself
 # renovate: datasource=github-releases depName=uv packageName=astral-sh/uv
-ENV UV_VERSION=0.12.12
+ENV UV_VERSION=0.12.13
 RUN curl -LsSf https://astral.sh/uv/$UV_VERSION/install.sh | sh
 
 # put saved tools outside user home
