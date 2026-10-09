@@ -32,6 +32,9 @@ jobs:
       dockerfile: ${{ matrix.language }}/Dockerfile
       attest_id: ${{ matrix.language }}
       push: ${{ github.event_name != 'pull_request' }}
+    secrets:
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
 
   attest:
     needs: publish
