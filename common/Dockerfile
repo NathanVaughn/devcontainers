@@ -32,6 +32,7 @@ RUN --mount=target=/var/lib/apt,type=cache,sharing=locked \
     nano\
     net-tools\
     python-is-python3 \
+    ripgrep \
     rsync\
     sed \
     software-properties-common\
