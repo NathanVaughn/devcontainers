@@ -1,4 +1,4 @@
-# syntax = edrevo/dockerfile-plus
+# syntax = cr.nathanv.app/docker.io/edrevo/dockerfile-plus
 
 INCLUDE+ common/Dockerfile
 
