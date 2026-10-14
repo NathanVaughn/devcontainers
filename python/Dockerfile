@@ -34,3 +34,6 @@ ENV UV_LINK_MODE=symlink
 
 # force usage of uv managed python installs
 ENV UV_PYTHON_PREFERENCE=only-managed
+# use our proxy for python and package installs
+ENV UV_ASTRAL_MIRROR_URL=https://pkgs.nathanv.app/generic/astral/
+ENV UV_DEFAULT_INDEX=https://pkgs.nathanv.app/pypi/simple/
